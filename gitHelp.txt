@@ -36,6 +36,12 @@ git add -A
 
 git commit -m "added"
 
+git remote add origin <link of your central repository>
+
+git pull origin master
+
+git push <remote>
+
 ----------------- And take sanpshot ----------------------
 
 --> if in any time you get 
