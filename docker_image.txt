@@ -1,0 +1,39 @@
+
+-------------------- Docker Image ---------------------
+
+sudo -i
+
+sudo  apt-get install docker*
+
+systemctl start docker
+
+systemctl enable docker
+
+systemctl status docker
+    ---> it should show active (running)
+	
+docker run hello-world
+
+docker search centos
+
+docker run centos
+
+docker images
+
+docker run -it centos
+
+yum install mariadb-server
+
+exit
+
+docker commit -m "any image name" -a "anyname" container id root/centos-mariadb
+
+docker images
+
+docker ps
+
+docker ps -a
+
+docker ps -l
+
+docker stop containerid

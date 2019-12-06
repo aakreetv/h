@@ -1,0 +1,66 @@
+
+------------------------JENKINS----------------------
+sudo su
+
+sudo apt-get update
+
+sudo apt install openjdk-8-jdk
+
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+
+sudo apt update
+
+sudo apt install jenkins
+
+systemctl status jenkins
+
+systemctl start jenkins
+
+systemctl enable jenkins
+
+systemctl status jenkins
+
+sudo ufw allow 8080
+
+sudo ufw status
+
+sudo ufw allow OpenSSH
+
+sudo ufw status
+
+dhclient
+
+ifconfig
+      --> copy the inet addr:192.168.23.160
+	  --> open browser http://192.168.23.160:8080
+	  --> do next next
+	  
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+      --> copy password eg:4f1629f5818042d88ccf9c649e45dcb4
+	  
+apt-get update
+
+sudo apt-get install git
+
+git --version
+
+---------- open git account -------
+open new repository
+select project
+click on clone or download and copy url
+
+---------- go to jenkins --------
+click on new item
+type project name and select freestyle project 
+in source code management select git
+paste the repository url 
+save and apply
+click on build path
+after build click on blue button
+
+
+
+
+----------------- take screenshot ----------------

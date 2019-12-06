@@ -1,0 +1,40 @@
+Before installing the necessary Docker packages for the swarm cluster, we will configure the hosts file on all the Ubuntu nodes.
+
+nano /etc/hosts
+
+192.168.1.103  dockermanager
+192.168.1.107  dockerworker1
+
+$apt-get update
+
+$systemctl start docker
+
+$systemctl enable docker
+
+$docker run hello-world
+
+$docker swarm init --advertise-addr <manager node IP address>
+
+u will get the token paste it in worker node
+
+   --->Configure Worker Nodes to join the Swarm Cluster
+
+   --->If at any time, you lost your join token, it can be retrieved by running the following command on the manager node for the manager token:
+
+$ docker swarm join-token manager -q
+The same way to retrieve the worker token run the following command on the manager node:
+
+--->Deploy new Service on Swarm Cluster
+
+$ docker service create --name my-web1 --publish 8081:80 --replicas 2 nginx
+
+$ docker service ls
+
+$ docker service ps <service name>
+
+--->If we need to check whether nginx service is working fine, either we can use the curl command or check in the browser on host machine for the nginx web server welcome page.
+
+$ curl http://dockermanager:8081
+
+--->Now , if we need to scale the nginx service we will make 3 replicas and to do that run the following command on manager node:
+$docker service scale my-web1=3

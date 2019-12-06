@@ -1,0 +1,77 @@
+
+
+---------------------- GIT-HUB -----------------------
+
+sudo apt-get install git-core
+
+git --version
+
+git config --global user.name "Any-name"
+
+git config --global user.email Any email
+
+git config --global branch.autosetuprebase always
+
+git config --global color.ui true
+
+git config --global color.status auto
+
+git config --global color.branch auto
+
+git config –list
+
+--> Now go to that folder which you want to upload in git repo
+    and copy the path..... then go to that folder in terminal
+	       eg: cd /home/ankitubuntu/Desktop/my-folder-name
+		   
+git init
+
+git status
+
+git config –list
+
+get add <folder/file - name>
+
+git add -A
+
+git commit -m "added"
+
+----------------- And take sanpshot ----------------------
+
+--> if in any time you get 
+
+E: Could not get lock /var/lib/dpkg/lock-frontend - open (11: Resource temporarily unavailable)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), is another process using it?
+
+
+----->  Then follw the follwing steps to remove the lock.
+
+ps aux | grep -i apt
+       --> Note the process id of that task which consist -i apt   (say pid)
+	   
+sudo kill -9 <pid>
+
+sudo killall apt apt-get
+
+lsof /var/lib/dpkg/lock
+
+lsof /var/lib/apt/lists/lock
+
+lsof /var/cache/apt/archives/lock
+
+  --> In any of the abouve three steps if any procees id shown then Note that process id  (say pid)
+
+sudo kill -9 <pid>
+
+sudo rm /var/lib/apt/lists/lock
+
+sudo rm /var/cache/apt/archives/lock
+
+sudo rm /var/lib/dpkg/lock
+
+sudo dpkg --configure -a
+
+lsof /var/lib/dpkg/lock-frontend
+       --> Note the process id of that task which consist -i apt   (say pid)
+
+sudo dpkg --configure -a   
